@@ -37,9 +37,11 @@ const ChatHistory = () => {
 
   useEffect(() => {
     function handleClickOutside(event) {
+      if (window.innerWidth < 1024) {
       if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
         setIsHistoryOpen(false);
       }
+    }
     }
     document.addEventListener('mousedown', handleClickOutside);
     return () => {

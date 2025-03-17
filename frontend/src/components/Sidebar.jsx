@@ -26,9 +26,11 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen}) => {
 
   useEffect(() => {
       function handleClickOutside(event) {
+        if (window.innerWidth < 1024) {
         if (leftSidebarRef.current && !leftSidebarRef.current.contains(event.target)) {
           setIsSidebarOpen(false);
         }
+      }
       }
       document.addEventListener('mousedown', handleClickOutside);
       return () => {
