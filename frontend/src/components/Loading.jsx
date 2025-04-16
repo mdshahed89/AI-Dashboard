@@ -1,3 +1,5 @@
+import { FaMicrophone } from "react-icons/fa";
+
 export const TypingLoading = () => {
   return (
     <div className="w-10 h-10 flex gap-1 items-center justify-center">
@@ -17,3 +19,17 @@ export const ImgLoading = () => {
     </div>
   );
 };
+
+export const MicrophoneButton = () => {
+  return (
+    <div className="flex items-center justify-center">
+      <button
+        id="speech"
+        className="relative w-[15px] h-[15px] rounded-full text-[#00879E]  text-lg flex items-center justify-center focus:outline-none"
+      >
+        <FaMicrophone />
+        <div className="pulse-ring absolute bg-[#00879E]/30 w-[27px] h-[27px] border-[2px] border-[#00879E] rounded-full" />
+      </button>
+    </div>
+  );
+}

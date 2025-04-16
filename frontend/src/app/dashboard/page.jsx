@@ -1,6 +1,10 @@
 "use client";
 
-import { ImgLoading, TypingLoading } from "@/components/Loading";
+import {
+  ImgLoading,
+  MicrophoneButton,
+  TypingLoading,
+} from "@/components/Loading";
 import React, { useEffect, useRef, useState } from "react";
 import {
   FaMicrophone,
@@ -18,18 +22,51 @@ import { HiOutlineRefresh } from "react-icons/hi";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { uploadFile } from "@/utils/uploadImg";
 import { RxCross2 } from "react-icons/rx";
+import { toast } from "react-toastify";
+import { IoIosSquare } from "react-icons/io";
+import { AnimatePresence, motion } from 'framer-motion';
+
+
 
 const Page = () => {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const fadeVariants = {
+    initial: { opacity: 0, y: 10 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -10 },
+  };
+
   return (
     <div className=" p-4 flex flex-col justify-between h-full w-full ">
+      <AnimatePresence mode="wait">
       {messages.length > 1 ? (
+        <motion.div
+        key="chats"
+        variants={fadeVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        transition={{ duration: 0.3 }}
+        className=" w-full"
+      >
         <Chats messages={messages} loading={loading} />
+        </motion.div>
       ) : (
+        <motion.div
+            key="default"
+            variants={fadeVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.3 }}
+            className=" w-full flex items-center justify-center h-full"
+          >
         <DefaultSection />
+        </motion.div>
       )}
+      </AnimatePresence>
       <CustomInput
         messages={messages}
         setMessages={setMessages}
@@ -55,7 +92,7 @@ const Chats = ({ messages, loading }) => {
   return (
     <div
       ref={containerRef}
-      className="flex-1 overflow-y-auto max-w-[50rem] mx-auto w-full rounded-lg p-4 space-y-2 scrollbar-hide"
+      className="flex-1 overflow-y-auto max-w-[50rem] mx-auto w-full rounded-lg p-4 space-y-3 scrollbar-hide"
       style={{ scrollbarWidth: "none" }}
     >
       {messages.map((msg, index) => (
@@ -207,7 +244,7 @@ function CustomInput({ messages, setMessages, loading, setLoading }) {
 
   const handleVoiceResult = (text) => {
     console.log("Recognized speech:", text);
-    // You can set this to a text input or use it elsewhere
+    setMessages((prev) => prev + " " + text);
   };
 
   return (
@@ -227,7 +264,15 @@ function CustomInput({ messages, setMessages, loading, setLoading }) {
                 input.length > 0 ? "text-[#00879E]" : "text-[#000] opacity-60"
               } `}
             >
-              <FaPaperPlane size={20} />
+              {loading ? (
+                <div className=" p-2 bg-[#00879E]/10 rounded-full text-[1.3rem] ">
+                  <IoIosSquare className=" text-[#00879E] " />
+                </div>
+              ) : (
+                <div className=" pr-1 ">
+                  <FaPaperPlane size={20} />
+                </div>
+              )}
             </button>
           </div>
 
@@ -295,7 +340,7 @@ function CustomInput({ messages, setMessages, loading, setLoading }) {
       </div>
       <p className="text-center text-xs text-gray-400 mt-2">
         Script may generate inaccurate information about people, places, or
-        facts. Model: Script AI v1.3
+        facts.
       </p>
     </div>
   );
@@ -305,12 +350,12 @@ const VoiceToText = ({ onResult }) => {
   const [listening, setListening] = useState(false);
 
   const SpeechRecognition =
-  typeof window !== "undefined" &&
-  (window.SpeechRecognition || window.webkitSpeechRecognition);
+    typeof window !== "undefined" &&
+    (window.SpeechRecognition || window.webkitSpeechRecognition);
 
   const startListening = () => {
     if (!SpeechRecognition) {
-      alert("Speech recognition not supported in this browser.");
+      toast.error("Speech recognition not supported in this browser.");
       return;
     }
 
@@ -331,11 +376,15 @@ const VoiceToText = ({ onResult }) => {
       console.error("Speech recognition error:", event.error);
       setListening(false);
       if (event.error === "network") {
-        alert("Network error: Please check your internet connection and try again.");
+        toast.error(
+          "Network error: Please check your internet connection and try again."
+        );
       } else if (event.error === "not-allowed") {
-        alert("Microphone access was denied. Please allow access to use voice features.");
+        toast.error(
+          "Microphone access was denied. Please allow access to use voice features."
+        );
       } else {
-        alert(`Speech recognition error: ${event.error}`);
+        toast.error(`Speech recognition error: ${event.error}`);
       }
     };
 
@@ -350,15 +399,21 @@ const VoiceToText = ({ onResult }) => {
   return (
     <div
       onClick={startListening}
-      className="flex items-center gap-1 hover:text-[#00879E] bg-[#fff] px-3 py-2 rounded-md cursor-pointer"
+      className=" hover:text-[#00879E] bg-[#fff] md:w-[11rem] px-3 py-2 rounded-md cursor-pointer"
     >
-      <FaMicrophone size={16} />
-      <span className="md:block hidden">
-        {listening ? "Listening..." : "Voice Message"}
-      </span>
+      {listening ? (
+        <div className=" flex items-center justify-center pt-0.5 ">
+          <MicrophoneButton />
+        </div>
+      ) : (
+        <div className=" flex items-center justify-center gap-1 ">
+          <FaMicrophone size={16} />
+          <span className="md:block hidden">Voice Message</span>
+        </div>
+      )}
     </div>
   );
-}
+};
 
 const DefaultSection = () => {
   return (

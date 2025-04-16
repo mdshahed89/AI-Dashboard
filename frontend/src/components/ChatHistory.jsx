@@ -80,26 +80,37 @@ const ChatHistory = () => {
         </div>
 
         {/* Navigation Links */}
-        <nav className="flex-1 space-y-3 px-3 mt-7  ">
-          <SidebarItem active />
-          <SidebarItem />
-          <SidebarItem />
-          <SidebarItem />
-          <SidebarItem />
-          <SidebarItem />
-          <SidebarItem />
-          <SidebarItem />
-          <SidebarItem />
-          <SidebarItem />
-        </nav>
+        <div className="flex-1 space-y-3 px-3 mt-7  ">
+          <SidebarItem
+            title="Why Next.js is important for frontend"
+            description="Next.js improves performance, SEO, and developer experience."
+            active
+          />
+          <SidebarItem
+            title="React Basics"
+            description="Understanding components, hooks, and state management."
+          />
+          <SidebarItem
+            title="Styling in Tailwind"
+            description="Utility-first CSS for fast and responsive UI."
+          />
+          <SidebarItem
+            title="Server Components"
+            description="Render parts of your app on the server for better performance."
+          />
+          <SidebarItem
+            title="Routing in Next.js"
+            description="File-based routing with dynamic and nested routes."
+          />
+        </div>
       </div>
     </div>
   );
 };
 
-const SidebarItem = ({ icon, label, active }) => (
+const SidebarItem = ({ title, description, icon, label, active }) => (
   <div
-    className={`flex flex-col items-center px-2 py-2 cursor-pointer transition-all duration-300 ease-in-out group border border-gray-200 hover:border-[#00879E] rounded-lg
+    className={`flex flex-col px-2 py-2 cursor-pointer transition-all duration-300 ease-in-out group border border-gray-200 hover:border-[#00879E] rounded-lg
         ${
           active
             ? "bg-white text-black "
@@ -111,14 +122,14 @@ const SidebarItem = ({ icon, label, active }) => (
         active ? " text-[#00879E] " : "text-[#383535] "
       }`}
     >
-      Why nextjs is important for frontend
+      {title}
     </p>
     <p
       className={`  line-clamp-1 text-sm font-[400] group-hover:text-[#000] ${
         active ? "text-[#000]" : "text-gray-700"
       } `}
     >
-      Nextjs is very important for frontend because of ...
+      {description}
     </p>
   </div>
 );

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { LuMoon } from "react-icons/lu";
 import { FiSearch } from "react-icons/fi";
-import { BsLayoutSidebarInsetReverse } from "react-icons/bs";
+import { BsLayoutSidebarInsetReverse, BsLayoutTextSidebar } from "react-icons/bs";
 import {
   FaSun,
   FaCloud,
@@ -11,7 +11,7 @@ import {
   FaClock,
   FaCalendarCheck,
 } from "react-icons/fa";
-import ProfileImg from "@/assets/ProfileImg.png";
+import Logo from "@/assets/Logo.png";
 import Image from "next/image";
 import { IoSunnyOutline } from "react-icons/io5";
 import Link from "next/link";
@@ -62,20 +62,23 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen}) => {
     >
       {/* Logo & Title */}
       <div className="flex items-center space-x-2 justify-between h-[90px] ">
-        <h3 className="text-xl font-bold text-black font-mono ">SVSA</h3>
+        {/* <h3 className="text-xl font-bold text-black font-mono ">SVSA</h3> */}
+        <div>
+          <Image src={Logo} alt="Logo" className=" w-[4rem] h-auto object-contain " />
+        </div>
         <div onClick={()=> setIsSidebarOpen(false)} className=" cursor-pointer text-[#1a1a1a] text-[1.2rem] ">
-          <BsLayoutSidebarInsetReverse />
+          <BsLayoutTextSidebar />
         </div>
       </div>
 
-      <div className="relative flex items-center my-7 w-full">
-        <div className=" absolute flex items-center text-[#1a1a1a] h-full px-3 ">
+      <div className="relative flex items-center my-7 w-full group ">
+        <div className=" absolute flex group-focus-within:text-[#00879E] items-center text-[#1a1a1a] h-full px-3 ">
           <FiSearch />
         </div>
         <input
           type="text"
           placeholder="Search"
-          className="w-full pl-10 pr-4 py-2 border-2 border-gray-300 rounded-xl focus:outline-none "
+          className="w-full pl-10 pr-4 py-2 border-2 border-[#00879E] rounded-lg focus:outline-none "
         />
       </div>
 
