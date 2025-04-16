@@ -135,7 +135,7 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
       {/* Theme Toggle & Profile */}
       <div className="mt-auto">
         <button
-          onClick={() => setDarkMode(!darkMode)}
+          // onClick={() => setDarkMode(!darkMode)}
           className="flex items-center gap-2 w-full p-2 rounded-md bg-gray-200 "
         >
           <div
