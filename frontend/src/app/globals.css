@@ -1,10 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Average&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Georama:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 @import "tailwindcss";
+
+/* @tailwind base;
+@tailwind components; */
+@tailwind utilities;
+
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
 
 /* Custom Scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
@@ -31,4 +48,30 @@
 }
 .sidebarClose{
   clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+}
+
+
+@keyframes bar {
+  0% {
+    background: #ccc;
+    margin-top: 25%;
+    height: 10%;
+  }
+  50% {
+    background: #444;
+    height: 100%;
+    margin-top: 0%;
+  }
+  100% {
+    background: #ccc;
+    height: 10%;
+    margin-top: 25%;
+  }
+}
+
+.animateBar {
+  animation-name: bar;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  display: block;
 }

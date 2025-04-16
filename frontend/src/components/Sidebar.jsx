@@ -16,14 +16,28 @@ import Image from "next/image";
 import { IoSunnyOutline } from "react-icons/io5";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { MdOutlineDarkMode, MdOutlineEventAvailable } from "react-icons/md";
+import { RiCalendarScheduleLine, RiCommunityLine } from "react-icons/ri";
+import { AiOutlineSetting } from "react-icons/ai";
+import { SiAnydesk } from "react-icons/si";
+import { PiAddressBookLight } from "react-icons/pi";
+import { TiWeatherCloudy } from "react-icons/ti";
+import { useTheme } from "next-themes";
+
+
 
 const Sidebar = ({ isSidebarOpen, setIsSidebarOpen}) => {
   const [darkMode, setDarkMode] = useState(false);
   const pathname = usePathname();
-
-
   const leftSidebarRef = useRef()
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  
   useEffect(() => {
       function handleClickOutside(event) {
         if (window.innerWidth < 1024) {
@@ -38,10 +52,13 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen}) => {
       };
     }, [leftSidebarRef]);
 
+    if (!mounted) return null;
+
+
   return (
     <div
     ref={leftSidebarRef}
-      className={`h-screen lg:relative absolute z-50 ${isSidebarOpen ? " opacity-100 flex sidebarOpen" : " opacity-0 hidden sidebarClose"} transition-all duration-500 ease-in-out  px-4 pb-4   flex-col bg-[#F5F5F5] border-r border-gray-200 text-black font-medium `}
+      className={`h-screen lg:relative absolute z-50 ${isSidebarOpen ? " opacity-100 flex sidebarOpen" : " opacity-0 hidden sidebarClose"} transition-all duration-500 ease-in-out  px-4 pb-4   flex-col bg-gray-50 border-r border-gray-200 text-black font-medium `}
     >
       {/* Logo & Title */}
       <div className="flex items-center space-x-2 justify-between h-[90px] ">
@@ -67,44 +84,44 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen}) => {
         <SidebarItem
           currentPath={pathname}
           path="/dashboard"
-          icon={<FaSun />}
+          icon={<SiAnydesk />}
           label="Ask Me Anything"
           active
         />
         <SidebarItem
           currentPath={pathname}
           path="/dashboard/get-weather"
-          icon={<FaCloud />}
+          icon={<TiWeatherCloudy />}
           label="Get Weather"
         />
         <SidebarItem
           currentPath={pathname}
           path="/dashboard/get-dealership-address"
-          icon={<FaMapMarkedAlt />}
+          icon={<PiAddressBookLight />}
           label="Get Dealership Address"
         />
         <SidebarItem
           currentPath={pathname}
           path="/dashboard/appointment-availability"
-          icon={<FaClock />}
+          icon={<RiCalendarScheduleLine />}
           label="Appointment Availability"
         />
         <SidebarItem
           currentPath={pathname}
           path="/dashboard/schedule-appointment"
-          icon={<FaCalendarCheck />}
+          icon={<MdOutlineEventAvailable />}
           label="Schedule Appointment"
         />
         <SidebarItem
           currentPath={pathname}
           path="/dashboard/schedule-appointment"
-          icon={<FaCalendarCheck />}
+          icon={<RiCommunityLine />}
           label="Community"
         />
         <SidebarItem
           currentPath={pathname}
           path="/dashboard/schedule-appointment"
-          icon={<FaCalendarCheck />}
+          icon={<AiOutlineSetting />}
           label="Setting & Help"
         />
       </nav>
@@ -113,14 +130,14 @@ const Sidebar = ({ isSidebarOpen, setIsSidebarOpen}) => {
       <div className="mt-auto">
         <button
           onClick={() => setDarkMode(!darkMode)}
-          className="flex items-center gap-2 w-full p-2 rounded-md bg-[#e0e0e0] "
+          className="flex items-center gap-2 w-full p-2 rounded-md bg-gray-200 "
         >
-          <div className=" flex-1 flex items-center justify-center cursor-pointer gap-1 bg-[#fff] hover:bg-[#fff] p-2 rounded-md ">
+          <div onClick={()=> setTheme("light")} className={` ${theme === "light" && "bg-[#fff]"} flex-1 flex items-center justify-center cursor-pointer gap-1 hover:bg-[#fff] p-2 rounded-md `}>
             <IoSunnyOutline />
             <span>Light</span>
           </div>
-          <div className=" flex-1 flex items-center justify-center cursor-pointer gap-1 hover:bg-[#fff] p-2 rounded-md ">
-            <IoSunnyOutline />
+          <div onClick={()=> setTheme("dark")} className={` ${theme === "dark" && "bg-[#fff]"} flex-1 flex items-center justify-center cursor-pointer gap-1 hover:bg-[#fff] p-2 rounded-md `}>
+            <MdOutlineDarkMode />
             <span>Dark</span>
           </div>
         </button>

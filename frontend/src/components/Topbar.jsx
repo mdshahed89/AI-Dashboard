@@ -6,7 +6,7 @@ import { IoIosGift } from "react-icons/io";
 
 const Topbar = ({ isSidebarOpen, setIsSidebarOpen}) => {
   return (
-    <div className='  flex-1 flex items-center justify-between w-full bg-[#f5f5f5] h-[80px] px-5 '>
+    <div className='  flex-1 flex items-center justify-between w-full bg-gray-50 h-[80px] px-5 '>
       <div className=' flex items-center gap-5 '>
       {
         !isSidebarOpen && <div onClick={()=> setIsSidebarOpen(true)} className=" cursor-pointer text-[#1a1a1a] text-[1.2rem] ">
