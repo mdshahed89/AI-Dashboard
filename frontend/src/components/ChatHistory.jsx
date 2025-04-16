@@ -63,9 +63,9 @@ const ChatHistory = () => {
       <div className={` ${isHistoryOpen ? "block" : "hidden"} `}>
         <div className="flex items-center space-x-2 justify-between py-4 px-3 border-b border-gray-200 ">
           <h3 className="text-xl font-bold text-black font-mono ">
-            Sessions(10)
+            Sessions(5)
           </h3>
-          <div className="  text-[#1a1a1a] text-[1.2rem] cursor-pointer ">
+          <div className="  text-[#1a1a1a] text-[1.4rem] cursor-pointer ">
             <BsThreeDots />
           </div>
         </div>

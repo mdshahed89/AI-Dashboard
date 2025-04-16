@@ -24,9 +24,7 @@ import { uploadFile } from "@/utils/uploadImg";
 import { RxCross2 } from "react-icons/rx";
 import { toast } from "react-toastify";
 import { IoIosSquare } from "react-icons/io";
-import { AnimatePresence, motion } from 'framer-motion';
-
-
+import { AnimatePresence, motion } from "framer-motion";
 
 const Page = () => {
   const [messages, setMessages] = useState([]);
@@ -50,22 +48,22 @@ const Page = () => {
   return (
     <div className=" p-4 flex flex-col justify-between h-full w-full ">
       <AnimatePresence mode="wait">
-      {messages.length > 1 ? (
-        <motion.div
-        ref={containerRef}
-        key="chats"
-        variants={fadeVariants}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-        transition={{ duration: 0.3 }}
-        className=" w-full scrollbar-hide flex-1 overflow-y-auto max-w-[50rem] mx-auto rounded-lg p-4"
-        style={{ scrollbarWidth: "none" }}
-      >
-        <Chats messages={messages} loading={loading} />
-        </motion.div>
-      ) : (
-        <motion.div
+        {messages.length > 1 ? (
+          <motion.div
+            ref={containerRef}
+            key="chats"
+            variants={fadeVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.3 }}
+            className=" w-full scrollbar-hide flex-1 overflow-y-auto max-w-[50rem] mx-auto rounded-lg p-4"
+            style={{ scrollbarWidth: "none" }}
+          >
+            <Chats messages={messages} loading={loading} />
+          </motion.div>
+        ) : (
+          <motion.div
             key="default"
             variants={fadeVariants}
             initial="initial"
@@ -74,9 +72,9 @@ const Page = () => {
             transition={{ duration: 0.3 }}
             className=" w-full flex items-center justify-center h-full"
           >
-        <DefaultSection />
-        </motion.div>
-      )}
+            <DefaultSection />
+          </motion.div>
+        )}
       </AnimatePresence>
       <CustomInput
         messages={messages}
@@ -91,12 +89,8 @@ const Page = () => {
 export default Page;
 
 const Chats = ({ messages, loading }) => {
-
   return (
-    <div
-      
-      className=" space-y-3 "
-    >
+    <div className=" space-y-3 ">
       {messages.map((msg, index) => (
         <div key={index}>
           <div
@@ -267,11 +261,11 @@ function CustomInput({ messages, setMessages, loading, setLoading }) {
               } `}
             >
               {loading ? (
-                <div className=" p-2 bg-[#00879E]/10 rounded-full text-[1.3rem] ">
+                <div className=" p-2 cursor-pointer bg-[#00879E]/10 rounded-full text-[1.3rem] ">
                   <IoIosSquare className=" text-[#00879E] " />
                 </div>
               ) : (
-                <div className=" pr-1 ">
+                <div className=" pr-1 cursor-pointer ">
                   <FaPaperPlane size={20} />
                 </div>
               )}

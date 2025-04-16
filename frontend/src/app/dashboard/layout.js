@@ -30,7 +30,7 @@ export default function DashboarddLayout({ children }) {
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}
         />
-        <div className=" relative h-[calc(100vh-100px)] flex border-t  border-[#ece8e8] ">
+        <div className=" relative h-[calc(100vh-80px)] flex border-t  border-[#ece8e8] ">
           <div className=" w-full h-full lg:pr-0 pr-[4rem] md:pr-[5rem] ">
             {children}
           </div>

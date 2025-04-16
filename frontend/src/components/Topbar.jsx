@@ -2,6 +2,8 @@ import React from 'react'
 import { BsFillLightningChargeFill, BsLayoutSidebarInsetReverse, BsLayoutTextSidebar } from 'react-icons/bs'
 import { FaRegCircleQuestion } from "react-icons/fa6";
 import { IoIosGift } from "react-icons/io";
+import MyPhoto from "@/assets/MyPhoto.jpg";
+import Image from 'next/image';
 
 
 const Topbar = ({ isSidebarOpen, setIsSidebarOpen}) => {
@@ -27,12 +29,12 @@ const Topbar = ({ isSidebarOpen, setIsSidebarOpen}) => {
             <IoIosGift />
             </div>
             <div className="relative cursor-pointer">
-            <img
+            <Image
                 width={500}
                 height={500}
                 className="size-10 rounded-full bg-slate-500 object-cover"
-                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=2080&auto=format&fit=crop"
-                alt="avatar navigate ui"
+                src={MyPhoto}
+                alt="MY Photo"
             />
             {/* <span className="absolute bottom-[2px] right-0 size-3 rounded-full border-[2px] border-white bg-green-500"></span> */}
         </div>
