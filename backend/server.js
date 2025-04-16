@@ -7,11 +7,12 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 const app = express();
 dotenv.config();
-// dbConnect();
+dbConnect();
 
 const corsOptions = {
   origin: [
     "http://localhost:3000",
+    "https://ai-dashboard-frontend.vercel.app"
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],

@@ -244,12 +244,12 @@ function CustomInput({ messages, setMessages, loading, setLoading }) {
 
   const handleVoiceResult = (text) => {
     console.log("Recognized speech:", text);
-    setMessages((prev) => prev + " " + text);
+    setInput((prev) => prev + " " + text);
   };
 
   return (
     <div>
-      <div className="w-full max-w-[50rem] rounded-2xl mx-auto p-[3px] bg-gradient-to-r from-[#00879E] to-[#0400f8] ">
+      <div className="w-full max-w-[50rem] rounded-2xl mx-auto p-[3px] bg-gradient-to-r from-[#00879E] to-[#111111] ">
         <form onSubmit={handleSendMessage} className=" bg-[#fff] rounded-xl ">
           <div className="relative  p-3 shadow">
             <input
