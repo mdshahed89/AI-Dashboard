@@ -32,6 +32,15 @@ const Page = () => {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (container) {
+      container.scrollTop = container.scrollHeight;
+    }
+  }, [messages]);
+
   const fadeVariants = {
     initial: { opacity: 0, y: 10 },
     animate: { opacity: 1, y: 0 },
@@ -43,13 +52,15 @@ const Page = () => {
       <AnimatePresence mode="wait">
       {messages.length > 1 ? (
         <motion.div
+        ref={containerRef}
         key="chats"
         variants={fadeVariants}
         initial="initial"
         animate="animate"
         exit="exit"
         transition={{ duration: 0.3 }}
-        className=" w-full"
+        className=" w-full scrollbar-hide flex-1 overflow-y-auto max-w-[50rem] mx-auto rounded-lg p-4"
+        style={{ scrollbarWidth: "none" }}
       >
         <Chats messages={messages} loading={loading} />
         </motion.div>
@@ -80,20 +91,11 @@ const Page = () => {
 export default Page;
 
 const Chats = ({ messages, loading }) => {
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (container) {
-      container.scrollTop = container.scrollHeight;
-    }
-  }, [messages]);
 
   return (
     <div
-      ref={containerRef}
-      className="flex-1 overflow-y-auto max-w-[50rem] mx-auto w-full rounded-lg p-4 space-y-3 scrollbar-hide"
-      style={{ scrollbarWidth: "none" }}
+      
+      className=" space-y-3 "
     >
       {messages.map((msg, index) => (
         <div key={index}>
