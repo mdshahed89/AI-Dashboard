@@ -25,6 +25,7 @@ import { RxCross2 } from "react-icons/rx";
 import { toast } from "react-toastify";
 import { IoIosSquare } from "react-icons/io";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 
 const Page = () => {
   const [messages, setMessages] = useState([]);
@@ -98,7 +99,16 @@ const Chats = ({ messages, loading }) => {
               msg.sender === "user" ? "justify-end" : "justify-start"
             }`}
           >
-            <p
+            <div className=" flex flex-col gap-2 items-end ">
+            {
+              msg?.images && msg?.images.length > 0 && msg.images.map((img, idx)=> (
+                <div key={idx} className=" relative w-[400px] h-[300px] ">
+                  <Image src={img} alt="User sent img" className=" rounded-md object-center w-auto h-auto " fill />
+                </div>
+              ))
+            }
+            {
+              msg?.text && <p
               className={`py-2 px-6 rounded-xl whitespace-pre-wrap w-fit ${
                 msg.sender === "user"
                   ? "bg-[#00879E] text-white rounded-br-none"
@@ -107,6 +117,8 @@ const Chats = ({ messages, loading }) => {
             >
               {formatMessage(msg.text)}
             </p>
+            }
+            </div>
           </div>
           {msg?.sender === "ai" && (
             <div className=" flex items-center gap-2 mt-2 pl-1 text-[1.2rem] ">
@@ -190,15 +202,6 @@ function CustomInput({ messages, setMessages, loading, setLoading }) {
     }
   };
 
-  // console.log("ff",files);
-
-  // const handleClearFile = (index) => {
-  //   setfiles((prev) => ({
-  //     ...prev,
-  //     gellaryImgs: prev.gellaryImgs.filter((_, i) => i !== index),
-  //   }));
-  // };
-
   const handleClearFile = (indexToRemove) => {
     setFiles((prevFiles) =>
       prevFiles.filter((_, index) => index !== indexToRemove)
@@ -207,21 +210,30 @@ function CustomInput({ messages, setMessages, loading, setLoading }) {
 
   const handleSendMessage = async (e) => {
     e.preventDefault();
-    if (!input.trim()) return;
+    if (!input.trim() && files.length === 0) return;
     setLoading(true);
 
-    const userMessage = { sender: "user", text: input };
+    const imageUrls = files.length > 0 ? files.map((file) => file.url) : [];
+
+    const userMessage = { sender: "user", text: input, ...(imageUrls.length > 0 && { images: imageUrls }), };
     setMessages([...messages, userMessage]);
 
     setInput("");
+    setFiles([])
 
     try {
+
+      const payload = {
+        message: input,
+        ...(imageUrls.length > 0 && { images: imageUrls }), // Send only if exists
+      };
+
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/chat/send-message`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ message: input }),
+          body: JSON.stringify(payload),
         }
       );
 
@@ -243,6 +255,9 @@ function CustomInput({ messages, setMessages, loading, setLoading }) {
     setInput((prev) => prev + " " + text);
   };
 
+  // console.log(messages);
+  
+
   return (
     <div>
       <div className="w-full max-w-[50rem] rounded-2xl mx-auto p-[3px] bg-gradient-to-r from-[#00879E] to-[#111111] ">
@@ -257,7 +272,7 @@ function CustomInput({ messages, setMessages, loading, setLoading }) {
             />
             <button
               className={` absolute right-3 top-1/2 transform -translate-y-1/2 ${
-                input.length > 0 ? "text-[#00879E]" : "text-[#000] opacity-60"
+                (input.length > 0 || files.length > 0) ? "text-[#00879E]" : "text-[#000] opacity-60"
               } `}
             >
               {loading ? (
