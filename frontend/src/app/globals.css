@@ -90,3 +90,37 @@ body {
 .pulse-ring {
   animation: pulse-ring 2s infinite;
 }
+
+
+
+.bars-loader {
+  display: flex;
+  gap: 6px;
+}
+.bars-loader div {
+  width: 6px;
+  height: 32px;
+  background: #00b4fc;
+  animation: pulse-bar 1s infinite ease-in-out;
+}
+.bars-loader div:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.bars-loader div:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.bars-loader div:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+@keyframes pulse-bar {
+  0%, 100% {
+    transform: scaleY(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scaleY(1.5);
+    opacity: 1;
+  }
+}
+

@@ -67,6 +67,11 @@ export const getAiMessage = async (req, res) => {
 };
 
 
+
+// const CHATGPT_EMAIL = 'lifetime8954@gmail.com';      
+// const CHATGPT_PASSWORD = 'MdShahed@89Hello';         
+
+
 const fetchImageAsBase64 = async (imageUrl) => {
   try {
     const response = await axios.get(imageUrl, {
@@ -86,3 +91,5 @@ const getMimeTypeFromUrl = (url) => {
   if (url.endsWith(".webp")) return "image/webp";
   return "image/png"; // default fallback
 };
+
+

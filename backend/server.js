@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import dbConnect from "./utils/dbConfig.js";
 import authRoutes from "./routes/auth.route.js";
 import chatRoutes from "./routes/chat.route.js"
+import automationRoutes from "./routes/automation.route.js"
 import cors from "cors";
 import cookieParser from "cookie-parser";
 const app = express();
@@ -34,6 +35,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api/chat", chatRoutes);
+app.use("/api/automation", automationRoutes);
 
 const PORT = process.env.PORT || 4801;
 

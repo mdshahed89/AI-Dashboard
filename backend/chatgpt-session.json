@@ -1,0 +1,188 @@
+{
+  "cookies": [
+    {
+      "name": "__cf_bm",
+      "value": "i2JWLKkAtBl_LG_MC3PNaLS2syXC5L6mNtqvUvjKA1M-1753736581-1.0.1.1-6jfSZ_DJgVt1Si.i8HCU1tHxKozfnUbRmM2uGE_.xdoeJjO5ST8RSTZXlmebkMjW9iS.XUHp5cN6IcuLXE3UR9Ll5gaeD8lYSoLh8IrRHpQ",
+      "domain": ".oaistatic.com",
+      "path": "/",
+      "expires": 1753738379.591304,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "_cfuvid",
+      "value": "V7a9RW70wFDQWDafDOTFmeVrqcJCo88eMtCJG9EzX9M-1753736581327-0.0.1.1-604800000",
+      "domain": ".oaistatic.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "__Host-next-auth.csrf-token",
+      "value": "c2c78b2c7ecb708024556ac2b8476e1ec56ca5ad641bd6ebc2870007f87bfa3c%7Ccebe133096933e881f792024a75466bafd1571ef3e8159fd4f817d9410cca590",
+      "domain": "chatgpt.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "__Secure-next-auth.callback-url",
+      "value": "https%3A%2F%2Fchatgpt.com",
+      "domain": "chatgpt.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "oai-did",
+      "value": "689dde83-8fec-4063-bc5d-041cfd0dbfb4",
+      "domain": ".chatgpt.com",
+      "path": "/",
+      "expires": 1784840579.671902,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "__cf_bm",
+      "value": "1UM6OW2Hc.aJbWELdpwB0j43.osC__COh8DOZUQ5bkY-1753736581-1.0.1.1-IKR6CEy_IJQoMtvedUqERIusRl5PP5FS2QXuEo5xIMa0qt0mDaN61DnLOjnDFWIZMHhFIBT0Si6no.R.WzC4Zbgcp5uKWMJGIZqd46huABs",
+      "domain": ".chatgpt.com",
+      "path": "/",
+      "expires": 1753738379.671914,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "__cflb",
+      "value": "04dTofELUVCxHqRn2XZhnXcaE9mhTNrfvE39QoTux7",
+      "domain": "chatgpt.com",
+      "path": "/",
+      "expires": 1753740179.671931,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "_cfuvid",
+      "value": "fP6Xbs9Ko9Lm_iYuzDf7.w1uWBBWxyPefZWYu0iFPOI-1753736581405-0.0.1.1-604800000",
+      "domain": ".chatgpt.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "cf_clearance",
+      "value": "spQ6.ErgGHzz8SdtReZnWqv._pGlpYvlv8ojq1WUl54-1753736582-1.2.1.1-ch9qbDkwpkQ5ms.JvAYiGjTfQeYtbFISQjijyIFrVyK2sqXNrTynIR6hCwjG8OwJtmtLAfUfM_NZsp3XmaCCMJtsGIIt0unGE7xR9Qw1Vspcza7uzQAXabfKgy1AOE1sQl65Uo38xh3pr7HOIfm8VcdSfPEgGVFuFl2vjy9wHyGZDjtGB2zGCCBZYg8mK4e_12qbfSMogNqI28f0RFWjoLPQz.nzoX0Z6LlO6UKutQk",
+      "domain": ".chatgpt.com",
+      "path": "/",
+      "expires": 1785272580.313585,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None",
+      "partitionKey": "https://chatgpt.com",
+      "_crHasCrossSiteAncestor": false
+    },
+    {
+      "name": "_dd_s",
+      "value": "rum=0&expire=1753737484010&logs=1&id=5e243b6a-311f-49cc-8d24-28576ef38ce1&created=1753736580453",
+      "domain": "chatgpt.com",
+      "path": "/",
+      "expires": 1753737484,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Strict"
+    },
+    {
+      "name": "oai-asli",
+      "value": "3a018fb4-ada8-41aa-be73-a02fe7c38b4c",
+      "domain": "chatgpt.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "cf_chl_rc_m",
+      "value": "1",
+      "domain": "chatgpt.com",
+      "path": "/",
+      "expires": 1753740190,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None",
+      "partitionKey": "https://chatgpt.com",
+      "_crHasCrossSiteAncestor": false
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://chatgpt.com",
+      "localStorage": [
+        {
+          "name": "oai/apps/hasDismissedTeamsNoAuthUpsell",
+          "value": "false"
+        },
+        {
+          "name": "oai-did",
+          "value": "\"689dde83-8fec-4063-bc5d-041cfd0dbfb4\""
+        },
+        {
+          "name": "oai/apps/capExpiresAt",
+          "value": "{\"state\":{\"isoDate\":\"\"},\"version\":0}"
+        },
+        {
+          "name": "statsig.session_id.1792610830",
+          "value": "{\"sessionID\":\"55c3fab6-bca4-4848-a01b-b1e0f60760f5\",\"startTime\":1753736580539,\"lastUpdate\":1753736584249}"
+        },
+        {
+          "name": "oai/apps/hasSeenNoAuthImagegenNux",
+          "value": "false"
+        },
+        {
+          "name": "oai/apps/lastPageLoadDate",
+          "value": "\"2025-07-28T21:03:00.587Z\""
+        },
+        {
+          "name": "client-correlated-secret",
+          "value": "{\"alg\":\"HS512\",\"ext\":true,\"k\":\"Ua5WS6UfPXhJoXVv1lxehRK2joEys4FiUv2Tyk0HHYhzNvfW8bOPedGc4pMsTM7ddgpNhqzyD_ss-9S-yoqXQj2iLBohQdyAvNM0IC_1vhUysYe2XbnNTMEkRDo7IcmtAc0ohZLJKoWRPWTV3BpueqomB2y8W1Bwmq1YFtSWTiI\",\"key_ops\":[\"sign\",\"verify\"],\"kty\":\"oct\"}"
+        },
+        {
+          "name": "statsig.stable_id.1792610830",
+          "value": "\"689dde83-8fec-4063-bc5d-041cfd0dbfb4\""
+        },
+        {
+          "name": "oai/apps/debugSettings",
+          "value": "{\"state\":{\"enableFConversationEndpoint\":true,\"showCompletionPerfData\":true,\"jsonViewerFilters\":{},\"recordRendering\":false},\"version\":0}"
+        },
+        {
+          "name": "oai/apps/tatertotInContextUpsellBannerV2",
+          "value": "null"
+        },
+        {
+          "name": "search.attributions-settings",
+          "value": "{\"state\":{\"debugMode\":false,\"viewModelPredictedFallback\":false,\"disableSegmentReplacement\":false,\"useSigmoid\":true,\"influenceTemperature\":0.2,\"probThreshold\":0.45,\"probBaseline\":0.02},\"version\":8}"
+        }
+      ]
+    },
+    {
+      "origin": "https://challenges.cloudflare.com",
+      "localStorage": [
+        {
+          "name": "cf.turnstile.u",
+          "value": "1I9_91ZlP5Wwgwm6hL9ewTboe6kSAHdU_xdIIq3kADk-1753736586-1.3.1.1-_i1y52kM8LGfRYViNc4HTQCrMvnnSalirUhwkKkQSULenItylRCNo1vi9_617W.m763gCXNq0e3GnizO6pyHsQ"
+        }
+      ]
+    }
+  ]
+}

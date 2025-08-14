@@ -33,3 +33,14 @@ export const MicrophoneButton = () => {
     </div>
   );
 }
+
+
+export const FetchLoading = () => {
+  return (
+    <div className="flex items-center justify-center min-h-[10rem]">
+      <div className="bars-loader">
+        <div></div><div></div><div></div><div></div>
+      </div>
+    </div>
+  );
+};
